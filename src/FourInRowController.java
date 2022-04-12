@@ -148,7 +148,7 @@ public class FourInRowController {
                 disableButton = true;
             }
             if (checkWinner(i, column)) {
-                System.out.println("winner");
+                announceWinner();
             }
         }
 
@@ -192,158 +192,165 @@ public class FourInRowController {
 
     private boolean checkWinner(int r, int c) {
         boolean winner = false;
-        int player_color = GameMatrix[c][r];
 
-        //check left, right and angled lines for 4 in a row
+        int player_color = GameMatrix[r][c];
 
-        int i = r;
-        int j = c;
-        int count = 1;
-        boolean turn_side = false;
-        for (int x = 0; x < 3; x++) {
-            if (!turn_side) {
+        //check horizontal for a 4 disk sequence
+
+        int i = r;//row index
+        int j = c;//column index
+        int counter = 0;//amount of continues disks with the same color
+        int k = 1;
+        boolean isTurned = false;
+        while (k < 4) {
+            if (!isTurned) {
                 i--;
             } else {
                 i++;
             }
-            if ( i < GameMatrix.length && i > 0 && j < GameMatrix[0].length && j > 0) {
-                if (GameMatrix[i][j] == player_color)
+            if (i >= 0 && i < GameMatrix.length && j >= 0 && j < GameMatrix[0].length && GameMatrix[i][j] == player_color) {
                 {
-                    count++;
-                    System.out.println("found 1");
+                    counter++;
+
                 }
-                else {
-                    if (turn_side)
-                        break;
-                    turn_side = true;
+            } else {
+                if (!isTurned) {
+                    isTurned = true;
                     i = r;
                     j = c;
+                } else {
+                    k = 4;
                 }
+                k++;
             }
         }
-        if (count == 4)
+        if (counter == 3) {
             winner = true;
-        System.out.println("1 " + winner);
+        }
+
+        //check vertical for a 4 disk sequence
+
+        i = r;//row index
+        j = c;//column index
+        counter = 0;//amount of continues disks with the same color
+        k = 1;
+        isTurned = false;
+        while (k < 4) {
+            if (!isTurned) {
+                j--;
+            } else {
+                j++;
+            }
+            if (i >= 0 && i < GameMatrix.length && j >= 0 && j < GameMatrix[0].length && GameMatrix[i][j] == player_color) {
+                {
+                    counter++;
+
+                }
+            } else {
+                if (!isTurned) {
+                    isTurned = true;
+                    i = r;
+                    j = c;
+                } else {
+                    k = 4;
+                }
+                k++;
+            }
+        }
+        if (counter == 3) {
+            winner = true;
+        }
+
+
+        //check Main diagonal for a 4 disk sequence
+        i = r;//row index
+        j = c;//column index
+        counter = 0;//amount of continues disks with the same color
+        k = 1;
+        isTurned = false;
+        while (k < 4) {
+            if (!isTurned) {
+                j--;
+                i--;
+            } else {
+                j++;
+                i++;
+            }
+            if (i >= 0 && i < GameMatrix.length && j >= 0 && j < GameMatrix[0].length && GameMatrix[i][j] == player_color) {
+                {
+                    counter++;
+
+                }
+            } else {
+                if (!isTurned) {
+                    isTurned = true;
+                    i = r;
+                    j = c;
+                } else {
+                    k = 4;
+                }
+                k++;
+            }
+        }
+        if (counter == 3) {
+            winner = true;
+        }
+
+        //check Main diagonal for a 4 disk sequence
+        i = r;//row index
+        j = c;//column index
+        counter = 0;//amount of continues disks with the same color
+        k = 1;
+        isTurned = false;
+        while (k < 4) {
+            if (!isTurned) {
+                j--;
+                i++;
+            } else {
+                j++;
+                i--;
+            }
+            if (i >= 0 && i < GameMatrix.length && j >= 0 && j < GameMatrix[0].length && GameMatrix[i][j] == player_color) {
+                {
+                    counter++;
+
+                }
+            } else {
+                if (!isTurned) {
+                    isTurned = true;
+                    i = r;
+                    j = c;
+                } else {
+                    k = 4;
+                }
+                k++;
+            }
+        }
+        if (counter == 3) {
+            winner = true;
+        }
 
 
         return winner;
     }
 
-//    private boolean checkWinner(int r, int c) {
-//        boolean winner = false;
-//        int player_color = GameMatrix[r][c];
-//
-//        //check left, right and angled lines for 4 in a row
-//
-//        int i = r;
-//        int j = c;
-//        int count = 1;
-//        boolean turn_side = false;
-//        while (count < 4 && i < GameMatrix.length && i > 0 && j < GameMatrix[0].length && j > 0) {
-//            if (!turn_side) {
-//                i--;
-//            } else {
-//                i++;
-//            }
-//            if (GameMatrix[i][j] == player_color)
-//                count++;
-//            else {
-//                if (turn_side)
-//                    break;
-//                turn_side = true;
-//                i = r;
-//                j = c;
-//            }
-//
-//        }
-//        if (count == 4)
-//            winner = true;
-//        System.out.println("1 " + winner);
-//
-//
-//        i = r;
-//        j = c;
-//        count = 0;
-//        turn_side = false;
-//        while (count < 4 && i < GameMatrix.length && i > 0 && j < GameMatrix[0].length && j > 0) {
-//            if (!turn_side) {
-//                j--;
-//            } else {
-//                j++;
-//            }
-//            if (GameMatrix[i][j] == player_color)
-//                count++;
-//            else {
-//                if (turn_side)
-//                    break;
-//                turn_side = true;
-//                i = r;
-//                j = c;
-//            }
-//
-//        }
-//        if (count == 4)
-//            winner = true;
-//        System.out.println("2 " + winner);
-//
-//        i = r;
-//        j = c;
-//        count = 0;
-//        turn_side = false;
-//        while (count < 4 && i < GameMatrix.length && i > 0 && j < GameMatrix[0].length && j > 0) {
-//            if (!turn_side) {
-//                i--;
-//                j--;
-//            } else {
-//                i++;
-//                j++;
-//            }
-//            if (GameMatrix[i][j] == player_color)
-//                count++;
-//            else {
-//                if (turn_side)
-//                    break;
-//                turn_side = true;
-//                i = r;
-//                j = c;
-//            }
-//
-//        }
-//
-//
-//        if (count == 4)
-//            winner = true;
-//        System.out.println("3 " + winner);
-//        i = r;
-//        j = c;
-//        count = 0;
-//        turn_side = false;
-//        while (count < 4 && i < GameMatrix.length && i > 0 && j < GameMatrix[0].length && j > 0) {
-//            if (!turn_side) {
-//                i--;
-//                j++;
-//            } else {
-//                i++;
-//                i--;
-//            }
-//            if (GameMatrix[i][j] == player_color)
-//                count++;
-//            else {
-//                if (turn_side)
-//                    break;
-//                turn_side = true;
-//                i = r;
-//                j = c;
-//            }
-//
-//        }
-//
-//
-//        if (count == 4)
-//            winner = true;
-//        System.out.println("4 " + winner);
-//        return winner;
-//    }
 
+    private void announceWinner() {
+        if (redsTurn) {
+            Label_turn.setTextFill(Color.BLUE);//set label
+            Label_turn.setText("Blue has won");
+        } else {
+            Label_turn.setTextFill(Color.RED);//set label
+            Label_turn.setText("Red has won");
+        }
+        Column1_button.setDisable(true);
+        Column2_button.setDisable(true);
+        Column3_button.setDisable(true);
+        Column4_button.setDisable(true);
+        Column5_button.setDisable(true);
+        Column6_button.setDisable(true);
+        Column7_button.setDisable(true);
+
+    }
 
 }

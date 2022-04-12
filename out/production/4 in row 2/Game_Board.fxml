@@ -9,37 +9,37 @@
 
 
 <VBox fx:id="main_vbox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FourInRowController">
-   <children>
-      <GridPane fx:id="game_board" alignment="CENTER" gridLinesVisible="true" prefHeight="362.0" prefWidth="600.0">
-        <columnConstraints>
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Button fx:id="Column1_button" mnemonicParsing="false" onAction="#Column1_button_onclick" prefWidth="60.0" text="1" GridPane.rowIndex="6" />
-            <Button fx:id="Column2_button" mnemonicParsing="false" onAction="#Column2_button_onclick" prefWidth="60.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Button fx:id="Column3_button" mnemonicParsing="false" onAction="#Column3_button_onclick" prefWidth="60.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <Button fx:id="Column4_button" mnemonicParsing="false" onAction="#Column4_button_onclick" prefWidth="60.0" text="4" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-            <Button fx:id="Column5_button" mnemonicParsing="false" onAction="#Column5_button_onclick" prefWidth="60.0" text="5" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-            <Button fx:id="Column6_button" mnemonicParsing="false" onAction="#Column6_button_onclick" prefWidth="60.0" text="6" GridPane.columnIndex="5" GridPane.rowIndex="6" />
-            <Button fx:id="Column7_button" alignment="CENTER" mnemonicParsing="false" onAction="#Column7_button_onclick" prefWidth="60.0" text="7" GridPane.columnIndex="6" GridPane.rowIndex="6" />
-         </children>
-      </GridPane>
-      <Button fx:id="Clear_button" mnemonicParsing="false" onAction="#clear_button_onclick" text="Clear" />
-      <Label fx:id="Label_turn" text="Red's Turn" textFill="RED" />
-   </children>
+    <children>
+        <GridPane fx:id="game_board" alignment="CENTER" gridLinesVisible="true" prefHeight="362.0" prefWidth="600.0">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Button fx:id="Column1_button" mnemonicParsing="false" onAction="#Column1_button_onclick" prefWidth="60.0" text="1" GridPane.rowIndex="6" />
+                <Button fx:id="Column2_button" mnemonicParsing="false" onAction="#Column2_button_onclick" prefWidth="60.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <Button fx:id="Column3_button" mnemonicParsing="false" onAction="#Column3_button_onclick" prefWidth="60.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                <Button fx:id="Column4_button" mnemonicParsing="false" onAction="#Column4_button_onclick" prefWidth="60.0" text="4" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                <Button fx:id="Column5_button" mnemonicParsing="false" onAction="#Column5_button_onclick" prefWidth="60.0" text="5" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                <Button fx:id="Column6_button" mnemonicParsing="false" onAction="#Column6_button_onclick" prefWidth="60.0" text="6" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+                <Button fx:id="Column7_button" alignment="CENTER" mnemonicParsing="false" onAction="#Column7_button_onclick" prefWidth="60.0" text="7" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+            </children>
+        </GridPane>
+        <Button fx:id="Clear_button" mnemonicParsing="false" onAction="#clear_button_onclick" text="Clear" />
+        <Label fx:id="Label_turn" text="Red's Turn" textFill="RED" />
+    </children>
 </VBox>
