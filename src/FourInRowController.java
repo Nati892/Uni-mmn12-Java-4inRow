@@ -3,11 +3,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import javafx.scene.shape.Line;
 
 
 public class FourInRowController {
@@ -17,6 +15,7 @@ public class FourInRowController {
 
     private int drawn_shape_counter = 0;
 
+    //logical matrix for gameboard
     private int GameMatrix[][] = new int[6][7];
     private boolean redsTurn = true;
 
@@ -56,7 +55,6 @@ public class FourInRowController {
 
     @FXML
     void Column1_button_onclick(ActionEvent event) {
-
         if (fillColumn(0)) {
             Column1_button.setDisable(true);
         }
@@ -189,7 +187,7 @@ public class FourInRowController {
 
     }
 
-
+//this function gets x,y coordinates of last put disk, and checks if it was a winning move
     private boolean checkWinner(int r, int c) {
         boolean winner = false;
 
@@ -201,20 +199,19 @@ public class FourInRowController {
         int j = c;//column index
         int counter = 0;//amount of continues disks with the same color
         int k = 1;
-        boolean isTurned = false;
+        boolean isTurned = false;//if switched to checking the other side
         while (k < 4) {
             if (!isTurned) {
                 i--;
             } else {
                 i++;
             }
-            if (i >= 0 && i < GameMatrix.length && j >= 0 && j < GameMatrix[0].length && GameMatrix[i][j] == player_color) {
+            if (i >= 0 && i < GameMatrix.length && j >= 0 && j < GameMatrix[0].length && GameMatrix[i][j] == player_color) {//if found a good game disk then count it
                 {
                     counter++;
-
                 }
             } else {
-                if (!isTurned) {
+                if (!isTurned) {//check other side of newly put disk, and if on that side then stop checking
                     isTurned = true;
                     i = r;
                     j = c;
@@ -262,7 +259,7 @@ public class FourInRowController {
         }
 
 
-        //check Main diagonal for a 4 disk sequence
+        //check diagonal for a 4 disk sequence
         i = r;//row index
         j = c;//column index
         counter = 0;//amount of continues disks with the same color
@@ -296,7 +293,7 @@ public class FourInRowController {
             winner = true;
         }
 
-        //check Main diagonal for a 4 disk sequence
+        //check other diagonal for a 4 disk sequence
         i = r;//row index
         j = c;//column index
         counter = 0;//amount of continues disks with the same color
@@ -329,20 +326,19 @@ public class FourInRowController {
         if (counter == 3) {
             winner = true;
         }
-
-
         return winner;
     }
 
-
+//this function gets invoked when someone has won
     private void announceWinner() {
         if (redsTurn) {
-            Label_turn.setTextFill(Color.BLUE);//set label
+            Label_turn.setTextFill(Color.BLUE);//set label to winner:blue
             Label_turn.setText("Blue has won");
         } else {
-            Label_turn.setTextFill(Color.RED);//set label
+            Label_turn.setTextFill(Color.RED);//set label to winner:red
             Label_turn.setText("Red has won");
         }
+        //disable all buttons in end game
         Column1_button.setDisable(true);
         Column2_button.setDisable(true);
         Column3_button.setDisable(true);
@@ -350,7 +346,5 @@ public class FourInRowController {
         Column5_button.setDisable(true);
         Column6_button.setDisable(true);
         Column7_button.setDisable(true);
-
     }
-
 }

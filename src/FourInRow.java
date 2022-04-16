@@ -11,6 +11,8 @@ public class FourInRow extends Application {
         Scene scene = new Scene(root);
         primaryStage.setTitle("4 in a row");
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);//disable resizing for screen
+        primaryStage.sizeToScene();
         primaryStage.show();
 
     }
